@@ -4,6 +4,17 @@ CREATE TYPE listing_type AS ENUM (
     'SelfContained'
 );
 
+CREATE TYPE amenity AS ENUM (
+    'Parking',
+    'Pool',
+    'Gated',
+    'Security',
+    'WheelchairAccessible',
+    'Elevator',
+    'Electricity',
+    'Water'
+);
+
 CREATE TYPE listing AS (
     type_of_listing listing_type,
     price INTEGER ,
@@ -17,10 +28,11 @@ CREATE TYPE listing AS (
 CREATE TABLE collections (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
+    display_image_url TEXT NOT NULL,
     description TEXT,
     location VARCHAR(255) NOT NULL,
     contact_information TEXT NOT NULL,
-    -- amenities TEXT[],
+    amenities amenity[],
     listings listing[] NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     rules TEXT[]

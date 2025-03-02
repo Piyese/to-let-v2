@@ -3,6 +3,11 @@ name = "to-let-v2"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "to-let-v2"
+path = "src/main.rs"
+
+
 [dependencies]
 sqlx = { version = "0.8.2", features = ["runtime-async-std-native-tls", "postgres", "chrono", "uuid"] }
 actix-cors = "0.7.0"
