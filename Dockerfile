@@ -45,7 +45,9 @@ RUN chmod +x ./to-let-v2
 ENV DATABASE_URL=$DATABASE_URL
 
 # Run the migrations
-RUN ./to-let-v2 sqlx migrate run
+RUN sqlx migrate run
+
+RUN ./to-let-v2 
 
 # Start the application
 CMD ["./to-let-v2"]

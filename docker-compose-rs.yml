@@ -1,0 +1,13 @@
+services:
+  rust-server:
+    container_name: rustserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    # depends_on:
+    #   postgres-db:
+    #     condition: service_healthy
+    env_file:
+      - ./.env
